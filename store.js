@@ -92,12 +92,14 @@ var connection = mysql.createConnection({
 				}
 			});
 
-			//  connection.query("UPDATE products SET stock_quantity=? WHERE item_id=?",[remaining_quantity, answer.what],
-			//  function(err,res){
-			//  	console.log(res);
-			 //});
-
-
+			// connection.query("UPDATE products SET ? WHERE ?", [{
+			// 	stock_quantity: current_quantity
+			// }, {
+			// 	item_id: answer.what
+			// }], function(err, res) {
+			// 	console.log(res)
+			// });
+			
 			connection.end();
 	});
 
