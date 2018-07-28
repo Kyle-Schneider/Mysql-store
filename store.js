@@ -90,18 +90,24 @@ var connection = mysql.createConnection({
 				else{
 					console.log("we are sorry, we only have " + current_quantity + " of these products available")
 				}
-			});
 
-			// connection.query("UPDATE products SET ? WHERE ?", [{
-			// 	stock_quantity: current_quantity
-			// }, {
-			// 	item_id: answer.what
-			// }], function(err, res) {
-			// 	console.log(res)
-			// });
+				connection.query("UPDATE products SET ? WHERE ?",
+			 [{
+				stock_quantity: remaining_quantity
+			}, 
+			{
+				item_id: answer.what
+			}], 
+			function(err, res) {
+				console.log(res)
+			});
 			
 			connection.end();
 	});
+
+			});
+
+			
 
 	//connection.end();
 		
